@@ -13,7 +13,7 @@ const Funds = () => {
       <div className="row">
         <div className="col">
           <span>
-            <p>Equity</p>sf
+            <p>Equity</p>
           </span>
 
           <div className="table">
