@@ -1,5 +1,9 @@
 import React from "react";
 
+import { Tooltip, Grow } from "@mui/material";
+
+import { watchlist } from "../data/data";
+
 const WatchList = () => {
   return (
     <div className="watchlist-container">
@@ -11,10 +15,14 @@ const WatchList = () => {
           placeholder="Search eg:infy, bse, nifty fut weekly, gold mcx"
           className="search"
         />
-        <span className="counts"> 9 / 50</span>
+        <span className="counts"> {watchlist.length} / 50</span>
       </div>
 
-      <ul className="list"></ul>
+      <ul className="list">
+        {watchlist.map((stock, index) => {
+          return <p>{stock.name}</p>;
+        })}
+      </ul>
     </div>
   );
 };
