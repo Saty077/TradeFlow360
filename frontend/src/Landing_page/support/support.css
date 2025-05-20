@@ -1,0 +1,37 @@
+.container-fluid {
+  background-color: #387ed1;
+  color: #fff;
+}
+
+.supportWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+  margin-bottom: 50px;
+}
+
+.supportWrapper a {
+  font-size: 20px;
+  color: #fff;
+
+  text-underline-offset: 4px;
+}
+
+.input {
+  padding: 10px;
+  border-radius: 5px;
+  width: 630px;
+  height: 60px;
+  border: none;
+}
+
+#wrapper a {
+  color: #fff;
+  text-underline-offset: 5px;
+  margin-right: 5px;
+}
+
+.featured ol {
+  margin-left: 30px;
+  line-height: 40px;
+}
