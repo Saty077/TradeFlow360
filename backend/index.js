@@ -186,6 +186,11 @@ app.get("/allHoldings", async (req, res) => {
   res.json(allHoldings);
 });
 
+app.get("/allPositions", async (req, res) => {
+  let allPositions = await PositionsModel.find({});
+  res.json(allPositions);
+});
+
 app.listen(PORT, () => {
   console.log("App Started");
   mongoose
