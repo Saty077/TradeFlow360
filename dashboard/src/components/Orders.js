@@ -31,20 +31,21 @@ const Orders = () => {
                 <th>Qty.</th>
                 <th>Price</th>
                 <th>Mode</th>
-                <th>Cur. val</th>
+                <th>Total price</th>
                 <th>P&L</th>
               </tr>
               {allOrders.map((stock, index) => {
                 const currValue = stock.price * stock.qty;
                 const isProfit = currValue - stock.avg * stock.qty >= 0.0;
                 const profClass = isProfit ? "profit" : "loss";
+                let modeClass = stock.mode === "Buy" ? "buyMode" : "sellMode";
 
                 return (
                   <tr key={index}>
                     <td>{stock.name}</td>
                     <td>{stock.qty}</td>
                     <td>{stock.price.toFixed(2)}</td>
-                    <td style={{ color: "#4184f3" }}>{stock.mode}</td>
+                    <td className={modeClass}>{stock.mode}</td>
                     <td>{currValue.toFixed(2)}</td>
                     <td className={profClass}>
                       {(currValue - stock.avg * stock.qty).toFixed(2)}
