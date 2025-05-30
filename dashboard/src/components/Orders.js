@@ -1,16 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Orders = () => {
+  const [allOrders, setAllOrders] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/allOrders").then((res) => {
+      console.log(res.data);
+      setAllOrders(res.data);
+    });
+  }, []);
+
   return (
     <div className="orders">
-      <div className="no-orders">
-        <p>You haven't placed any orders today</p>
+      {allOrders.length === 0 ? (
+        <div className="no-orders">
+          <p>You haven't placed any orders today</p>
+          <Link to={"/"} className="btn">
+            Get started
+          </Link>
+        </div>
+      ) : (
+        <div className="yes-order">
+          <h3 className="title">Orders ({allOrders.length})</h3>
+          <div className="order-table">
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Qty.</th>
+                <th>Price</th>
+                <th>Mode</th>
+                <th>Cur. val</th>
+                <th>P&L</th>
+              </tr>
+              {allOrders.map((stock, index) => {
+                const currValue = stock.price * stock.qty;
+                const isProfit = currValue - stock.avg * stock.qty >= 0.0;
+                const profClass = isProfit ? "profit" : "loss";
 
-        <Link to={"/"} className="btn">
-          Get started
-        </Link>
-      </div>
+                return (
+                  <tr key={index}>
+                    <td>{stock.name}</td>
+                    <td>{stock.qty}</td>
+                    <td>{stock.price.toFixed(2)}</td>
+                    <td style={{ color: "#4184f3" }}>{stock.mode}</td>
+                    <td>{currValue.toFixed(2)}</td>
+                    <td className={profClass}>
+                      {(currValue - stock.avg * stock.qty).toFixed(2)}
+                    </td>
+                  </tr>
+                );
+              })}
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
