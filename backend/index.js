@@ -204,6 +204,11 @@ app.post("/newOrder", async (req, res) => {
   res.send("order saved");
 });
 
+app.get("/allOrders", async (req, res) => {
+  let allOrders = await OrdersModel.find({});
+  res.json(allOrders);
+});
+
 app.listen(PORT, () => {
   console.log("App Started");
   mongoose
