@@ -843,3 +843,11 @@ hr {
 .action:hover {
   background-color: rgb(212, 212, 212);
 }
+
+.order-table td.buyMode {
+  color: #4184f3;
+}
+
+.order-table td.sellMode {
+  color: #ff5722;
+}
