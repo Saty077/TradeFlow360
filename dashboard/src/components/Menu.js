@@ -1,110 +1,101 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import axios from "axios";
 
 const Menu = () => {
   const [selectMenu, setSelectMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const [cookies, removeCookie] = useCookies([]);
+  const [username, setUsername] = useState("");
 
-  const handelMenuClick = (index) => {
+  const handleMenuClick = (index) => {
     setSelectMenu(index);
   };
 
-  const handelProfileClick = (index) => {
+  const handleProfileClick = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
   };
 
+  // Fetch user info on load
+  useEffect(() => {
+    const verifyUser = async () => {
+      if (!cookies.token) {
+        console.warn("No token found in cookies");
+        return;
+      }
+      try {
+        const { data } = await axios.post(
+          "http://localhost:3001",
+          {},
+          { withCredentials: true }
+        );
+        const { status, user } = data;
+        if (status) setUsername(user);
+        else {
+          removeCookie("token");
+          window.location.href = "http://localhost:3000/login";
+        }
+      } catch (err) {
+        removeCookie("token");
+        window.location.href = "http://localhost:3000/login";
+      }
+    };
+    verifyUser();
+  }, [cookies, removeCookie]);
+
+  //  Logout function
+  const handleLogout = () => {
+    removeCookie("token");
+    window.location.href = "http://localhost:3000/login";
+  };
+
   const menuClass = "menu";
-  const acitveMenuClass = " menu selected";
+  const activeMenuClass = "menu selected";
 
   return (
     <div className="menu-container">
       <img src="logo.png" style={{ width: "50px" }} alt="logo" />
       <div className="menus">
         <ul>
-          <li>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/"
-              onClick={() => {
-                handelMenuClick(0);
-              }}
-            >
-              <p className={selectMenu === 0 ? acitveMenuClass : menuClass}>
-                Dashboard
-              </p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/orders"
-              onClick={() => {
-                handelMenuClick(1);
-              }}
-            >
-              <p className={selectMenu === 1 ? acitveMenuClass : menuClass}>
-                Orders
-              </p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/holdings"
-              onClick={() => {
-                handelMenuClick(2);
-              }}
-            >
-              <p className={selectMenu === 2 ? acitveMenuClass : menuClass}>
-                Holdings
-              </p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/positions"
-              onClick={() => {
-                handelMenuClick(3);
-              }}
-            >
-              <p className={selectMenu === 3 ? acitveMenuClass : menuClass}>
-                Positions
-              </p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/funds"
-              onClick={() => {
-                handelMenuClick(4);
-              }}
-            >
-              <p className={selectMenu === 4 ? acitveMenuClass : menuClass}>
-                Funds
-              </p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/apps"
-              onClick={() => {
-                handelMenuClick(5);
-              }}
-            >
-              <p className={selectMenu === 5 ? acitveMenuClass : menuClass}>
-                Apps
-              </p>
-            </Link>
-          </li>
+          {["/", "/orders", "/holdings", "/positions", "/funds", "/apps"].map(
+            (path, index) => (
+              <li key={index}>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={path}
+                  onClick={() => handleMenuClick(index)}
+                >
+                  <p
+                    className={
+                      selectMenu === index ? activeMenuClass : menuClass
+                    }
+                  >
+                    {
+                      [
+                        "Dashboard",
+                        "Orders",
+                        "Holdings",
+                        "Positions",
+                        "Funds",
+                        "Apps",
+                      ][index]
+                    }
+                  </p>
+                </Link>
+              </li>
+            )
+          )}
         </ul>
         <hr />
-        <div className="profile" onClick={handelProfileClick}>
-          <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+        <div className="profile" onClick={handleProfileClick}>
+          <div className="avatar">{username?.slice(0, 2).toUpperCase()}</div>
+          <p className="username">{username}</p>
+          {isProfileDropdownOpen && (
+            <div className="dropdown">
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          )}
         </div>
       </div>
     </div>
