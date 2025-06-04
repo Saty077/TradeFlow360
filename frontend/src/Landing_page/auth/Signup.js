@@ -30,6 +30,11 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!email || !username || !password) {
+      handleError("All fields are required");
+      return;
+    }
+    console.log("Form data being sent:", inputValue); // test
     try {
       const { data } = await axios.post(
         "http://localhost:3001/signup",
