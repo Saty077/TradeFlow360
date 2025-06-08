@@ -96,7 +96,7 @@ label {
   text-align: center;
   margin-block: 1rem;
   padding-block: 0.6rem;
-  color: rgba(0, 212, 255, 1);
+  color: rgb(56, 126, 209);
 }
 
 .form_container > form {
@@ -129,8 +129,9 @@ label {
 }
 
 .form_container button {
-  background-color: rgba(0, 212, 255, 1);
-  color: #fff;
+  background-color: rgb(56, 126, 209);
+
+  color: rgb(255, 255, 255);
   border: none;
   padding: 0.6rem;
   font-size: 1rem;
@@ -139,9 +140,13 @@ label {
   width: 200px;
 }
 
+.form_container button:hover {
+  background-color: rgb(55, 109, 174);
+}
+
 span a {
   text-decoration: none;
-  color: rgba(0, 212, 255, 1);
+  color: rgb(56, 126, 209);
 }
 
 /* .home_page {
