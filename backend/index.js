@@ -6,11 +6,10 @@ const mongoose = require("mongoose");
 // const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-
+const authRoute = require("./routes/AuthRoute");
 const { HoldingsModel } = require("./models/HoldingsModel");
 const { PositionsModel } = require("./models/PositionsModel");
 const { OrdersModel } = require("./models/OrdersModel");
-const authRoute = require("./routes/AuthRoute");
 
 const PORT = process.env.PORT || 3001;
 const uri = process.env.MONGO_URL;
