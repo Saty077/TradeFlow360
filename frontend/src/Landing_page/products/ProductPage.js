@@ -19,7 +19,7 @@ function ProductPage() {
         AppStore=""
       />
       <RightSection
-        ImageUrl="media\images\console.png"
+        ImageUrl="media/images/console.png"
         Title="Console"
         Description="Build powerful trading platforms and experiences with our super simple HTTP/JSON APIs. If you are a startup, build your investment app and showcase it to our clientbase."
         Link=""
@@ -35,7 +35,7 @@ function ProductPage() {
         AppStore=""
       />
       <RightSection
-        ImageUrl="media\images\kiteconnect.png"
+        ImageUrl="media/images/kiteconnect.png"
         Title="Kite Connect API"
         Description="Build powerful trading platforms and experiences with our super simple HTTP/JSON APIs. If you are a startup, build your investment app and showcase it to our clientbase."
         Link=""
