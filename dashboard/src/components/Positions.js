@@ -3,11 +3,13 @@ import axios from "axios";
 
 // import { positions } from "../data/data";
 
+const backendURL = process.env.REACT_APP_API_URL;
+
 const Positions = () => {
   const [allPositions, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/allPositions").then((res) => {
+    axios.get(`${backendURL}/allPositions`).then((res) => {
       console.log(res.data);
       setAllHoldings(res.data);
     });

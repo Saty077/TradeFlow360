@@ -3,6 +3,8 @@ import axios from "axios";
 import { VerticleGraph } from "./VerticleGraph";
 // import { holdings } from "../data/data";
 
+const backendURL = process.env.REACT_APP_API_URL;
+
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
@@ -38,7 +40,7 @@ const Holdings = () => {
   // };
 
   useEffect(() => {
-    axios.get("http://localhost:3001/allHoldings").then((res) => {
+    axios.get(`${backendURL}/allHoldings`).then((res) => {
       console.log(res.data);
       setAllHoldings(res.data);
     });

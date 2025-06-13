@@ -13,10 +13,12 @@ const { OrdersModel } = require("./models/OrdersModel");
 
 const PORT = process.env.PORT || 3001;
 const uri = process.env.MONGO_URL;
+const dashboardURL = process.env.REACT_APP_DASHBOARD_URL;
+const frontendUrl = process.env.REACT_APP_FRONTEND_URL;
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3002"],
+    origin: [`${frontendUrl}`, `${dashboardURL}`],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
