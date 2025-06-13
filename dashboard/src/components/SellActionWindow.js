@@ -36,8 +36,8 @@ const SellActionWindow = ({ uid }) => {
               type="number"
               name="qty"
               id="qty"
-              onChange={(e) => setStockPrice(e.target.value)}
-              value={stockPrice}
+              onChange={(e) => setStockQuantity(e.target.value)}
+              value={stockQuantity}
             />
           </fieldset>
           <fieldset>
@@ -47,8 +47,8 @@ const SellActionWindow = ({ uid }) => {
               name="price"
               id="price"
               step="0.05"
-              onChange={(e) => setStockQuantity(e.target.value)}
-              value={stockQuantity}
+              onChange={(e) => setStockPrice(e.target.value)}
+              value={stockPrice}
             />
           </fieldset>
         </div>
