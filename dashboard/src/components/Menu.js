@@ -8,6 +8,7 @@ const Menu = () => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [cookies, removeCookie] = useCookies(["token"]);
   const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     console.log("Menu.js useEffect triggered"); // Debug
@@ -40,10 +41,14 @@ const Menu = () => {
         console.error("Verification error:", err.response?.data || err.message); // Debug
         removeCookie("token", { path: "/", domain: "localhost" });
         window.location.href = "http://localhost:3000/login";
+      } finally {
+        setLoading(false); // Done checking
       }
     };
     verifyUser();
   }, [cookies, removeCookie]);
+
+  if (loading) return <div>Loading...</div>;
   // [cookies, removeCookie]
   // const handleLogout = async () => {
   //   try {
