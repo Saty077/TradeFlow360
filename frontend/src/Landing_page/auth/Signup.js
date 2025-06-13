@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
+const backendURL = process.env.REACT_APP_API_URL;
+const dashboardURL = process.env.REACT_APP_DASHBOARD_URL;
+
 const Signup = () => {
   //   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
@@ -37,7 +40,8 @@ const Signup = () => {
     console.log("Form data being sent:", inputValue); // test
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/signup",
+        // "http://localhost:3001/signup",
+        `${backendURL}/signup`,
         {
           ...inputValue,
         },
@@ -47,7 +51,8 @@ const Signup = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.href = "http://localhost:3002";
+          // window.location.href = "http://localhost:3002";
+          window.location.href = `${dashboardURL}`;
         }, 1000);
       } else {
         handleError(message);

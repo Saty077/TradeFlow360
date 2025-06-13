@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 
+const backendURL = process.env.REACT_APP_API_URL;
+const frontendUrl = process.env.REACT_APP_FRONTEND_URL;
+
 const Menu = () => {
   const [selectMenu, setSelectMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
@@ -16,14 +19,14 @@ const Menu = () => {
     const verifyUser = async () => {
       if (!cookies.token) {
         console.warn("No token found in cookies, redirecting to login");
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = `${frontendUrl}/login`;
         return;
       }
       console.log("Sending POST to http://localhost:3001"); //debug
       try {
         console.log("Sending POST request to http://localhost:3001"); // Debug
         const { data } = await axios.post(
-          "http://localhost:3001",
+          `${backendURL}`,
           {},
           { withCredentials: true }
         );
@@ -35,12 +38,12 @@ const Menu = () => {
         } else {
           console.warn("Verification failed:", message); // Debug
           removeCookie("token", { path: "/", domain: "localhost" });
-          window.location.href = "http://localhost:3000/login";
+          window.location.href = `${frontendUrl}/login`;
         }
       } catch (err) {
         console.error("Verification error:", err.response?.data || err.message); // Debug
         removeCookie("token", { path: "/", domain: "localhost" });
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = `${frontendUrl}/login`;
       } finally {
         setLoading(false); // Done checking
       }
@@ -57,7 +60,7 @@ const Menu = () => {
   //       withCredentials: true,
   //     });
   //     removeCookie("token", { path: "/", domain: "localhost" });
-  //     window.location.href = "http://localhost:3000/login";
+  //     window.location.href = `${frontendUrl}/login`;
   //   } catch (err) {
   //     console.error("Logout failed:", err.response?.data || err.message);
   //   }
@@ -65,7 +68,7 @@ const Menu = () => {
 
   const handleLogout = () => {
     removeCookie("token");
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = `${frontendUrl}/login`;
   };
 
   const handleMenuClick = (index) => {
