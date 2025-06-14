@@ -52,8 +52,8 @@ function createTicket() {
             }}
           >
             <p className="fs-4">
-              <i class="fa fa-user-o" aria-hidden="true"></i>&nbsp; Your Zerodha
-              Account
+              <i class="fa fa-user-o" aria-hidden="true"></i>&nbsp; Your
+              TradeFlow Account
             </p>
           </a>
           <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>

@@ -8,15 +8,15 @@ function Stats() {
           <h1 className="mb-5 fs-2">Trust with confidence</h1>
           <h2 className="fs-4">Customer-first always</h2>
           <p className="text-muted">
-            that's why 1.3+ crore customers trust Zerodha with 3.5+ lakh crores
-            worth of equity investments.{" "}
+            that's why 1.3+ crore customers trust TradeFlow with 3.5+ lakh
+            crores worth of equity investments.{" "}
           </p>
           <h2 className="fs-4">No spam or gimmicks</h2>
           <p className="text-muted">
             No gimmicks, spam, "gamification", or annoying push notifications.
             High quality apps that you use at your pace, the way you like.
           </p>
-          <h2 className="fs-4">The Zerodha universe</h2>
+          <h2 className="fs-4">The TradeFlow universe</h2>
           <p className="text-muted">
             Not just an app, but a whole ecosystem. Our investments in 30+
             fintech starups offr you tailored services specific to your needs.

@@ -7,7 +7,7 @@ function Universe() {
       <div className="universe p-5">
         <div className="text-center ">
           <h1 className="mb-4" style={{ fontSize: "35px" }}>
-            The Zerodha Universe
+            The TradeFlow Universe
           </h1>
           <p className="text-muted">
             Extend your trading and investment experience even further with our
@@ -18,7 +18,7 @@ function Universe() {
         <div className="row p-5 text-center text-muted">
           <div className="col-4">
             <img
-              src="media/images/zerodhaFundhouse.png"
+              src="media/images/tradeFlow.jpg"
               className="w-50 h-20 mb-2"
               alt="fund-img"
             ></img>
