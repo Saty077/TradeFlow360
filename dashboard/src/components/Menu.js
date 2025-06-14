@@ -37,12 +37,12 @@ const Menu = () => {
           setUsername(user);
         } else {
           console.warn("Verification failed:", message); // Debug
-          removeCookie("token", { path: "/", domain: "localhost" });
+          removeCookie("token", { path: "/" });
           window.location.href = `${frontendUrl}/login`;
         }
       } catch (err) {
         console.error("Verification error:", err.response?.data || err.message); // Debug
-        removeCookie("token", { path: "/", domain: "localhost" });
+        removeCookie("token", { path: "/" });
         window.location.href = `${frontendUrl}/login`;
       } finally {
         setLoading(false); // Done checking
