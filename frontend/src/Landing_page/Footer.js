@@ -7,11 +7,13 @@ function Footer() {
         <div className="row mt-5">
           <div className="col">
             <img
-              src="media/images/logo.svg"
+              src="media/images/tradeFlow.jpg"
               alt="logo"
               style={{ width: "50%" }}
             ></img>
-            <p>&copy; 2010 - 2025, Zerodha Broking Ltd. All rights reserved.</p>
+            <p>
+              &copy; 2010 - 2025, TradeFlow Broking Ltd. All rights reserved.
+            </p>
           </div>
           <div className="col" style={{ textDecoration: "none" }}>
             <p>Company</p>
@@ -36,7 +38,7 @@ function Footer() {
             </a>{" "}
             <br></br>
             <a style={{ textDecoration: "none", color: "gray" }} href="">
-              Zerodha.tech
+              TradeFlow.tech
             </a>{" "}
             <br></br>
             <a style={{ textDecoration: "none", color: "gray" }} href="">
@@ -48,7 +50,7 @@ function Footer() {
             </a>{" "}
             <br></br>
             <a style={{ textDecoration: "none", color: "gray" }} href="">
-              Zerodha Cares (CSR)
+              TradeFlow Cares (CSR)
             </a>{" "}
             <br></br>
           </div>
@@ -101,17 +103,17 @@ function Footer() {
         </div>
         <div className="mt-5 text-muted" style={{ fontSize: "12px" }}>
           <p>
-            Zerodha Broking Ltd.: Member of NSE, BSE​ &​ MCX – SEBI Registration
-            no.: INZ000031633 CDSL/NSDL: Depository services through Zerodha
-            Broking Ltd. – SEBI Registration no.: IN-DP-431-2019 Commodity
-            Trading through Zerodha Commodities Pvt. Ltd. MCX: 46025; NSE-50001
-            – SEBI Registration no.: INZ000038238 Registered Address: Zerodha
-            Broking Ltd., #153/154, 4th Cross, Dollars Colony, Opp. Clarence
-            Public School, J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka,
-            India. For any complaints pertaining to securities broking please
-            write to complaints@zerodha.com, for DP related to dp@zerodha.com.
-            Please ensure you carefully read the Risk Disclosure Document as
-            prescribed by SEBI | ICF
+            TradeFlow Broking Ltd.: Member of NSE, BSE​ &​ MCX – SEBI
+            Registration no.: INZ000031633 CDSL/NSDL: Depository services
+            through TradeFlow Broking Ltd. – SEBI Registration no.:
+            IN-DP-431-2019 Commodity Trading through TradeFlow Commodities Pvt.
+            Ltd. MCX: 46025; NSE-50001 – SEBI Registration no.: INZ000038238
+            Registered Address: TradeFlow Broking Ltd., #153/154, 4th Cross,
+            Dollars Colony, Opp. Clarence Public School, J.P Nagar 4th Phase,
+            Bengaluru - 560078, Karnataka, India. For any complaints pertaining
+            to securities broking please write to complaints@TradeFlow.com, for
+            DP related to dp@TradeFlow.com. Please ensure you carefully read the
+            Risk Disclosure Document as prescribed by SEBI | ICF
           </p>
           <p>
             Procedure to file a complaint on SEBI SCORES: Register on SCORES
@@ -147,7 +149,7 @@ function Footer() {
             of allotment. In case of non allotment the funds will remain in your
             bank account. As a business we don't give stock tips, and have not
             authorized anyone to trade on behalf of others. If you find anyone
-            claiming to be part of Zerodha and offering such services, please
+            claiming to be part of TradeFlow and offering such services, please
             create a ticket here.
           </p>
         </div>

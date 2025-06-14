@@ -18,7 +18,7 @@ function Team() {
               className="fs-4 text-center text-muted"
               style={{ lineHeight: "1.5" }}
             >
-              This is my Full-Stack Web Development project Zerodha <br></br>{" "}
+              This is my Full-Stack Web Development project TradeFlow <br></br>{" "}
               This Project is build using MERN Stack technology
             </h1>
           </div>

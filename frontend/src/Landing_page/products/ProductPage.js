@@ -51,8 +51,8 @@ function ProductPage() {
         AppStore=""
       />
       <p className="text-center fs-5 mb-5">
-        Want to know more about our technology stack? Check out the Zerodha.tech
-        blog.
+        Want to know more about our technology stack? Check out the
+        TradeFlow.tech blog.
       </p>
       <Universe />
     </>

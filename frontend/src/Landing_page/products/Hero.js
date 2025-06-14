@@ -4,7 +4,7 @@ function Hero() {
   return (
     <div className="container text-center border-bottom p-3 mt-5 mb-5">
       <h1 className="mt-5 " style={{ fontSize: "50px" }}>
-        Zerodha Products
+        TradeFlow Products
       </h1>
       <p className="fs-4">Sleek, modern, and intutive trading platforms</p>
       <p className="fs-5.5 mb-5">
