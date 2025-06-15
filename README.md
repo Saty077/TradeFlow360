@@ -1,7 +1,7 @@
-# TradeFlow Clone
+# TradeFlow360
 
 A full Stack Stock Monitoring Tool, built using the **MERN** stack — MongoDB, Express.js, React.js, and Node.js.  
-This project replicates the core experience of TradeFlow, allowing users to sign up, log in securely, and access a personalized trading dashboard. Features include order management, portfolio tracking, and a structured UI, all styled responsively.
+This project replicates the core experience of Zerodha, allowing users to sign up, log in securely, and access a personalized trading dashboard. Features include order management, portfolio tracking, and a structured UI, all styled responsively.
 
 ---
 
