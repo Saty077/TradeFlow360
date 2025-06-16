@@ -15,6 +15,7 @@ module.exports.Signup = async (req, res, next) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
+      domain: ".onrender.com",
     });
     res
       .status(201)
@@ -44,6 +45,7 @@ module.exports.Login = async (req, res, next) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
+      domain: ".onrender.com",
     });
     res
       .status(201)
@@ -52,4 +54,14 @@ module.exports.Login = async (req, res, next) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+module.exports.Logout = (req, res) => {
+  res.clearCookie("token", {
+    domain: ".render.com",
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
+  res.status(200).json({ message: "Logged out successfully" });
 };

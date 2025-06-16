@@ -15,11 +15,11 @@ const Menu = () => {
 
   useEffect(() => {
     const verifyUser = async () => {
-      if (!cookies.token) {
-        console.warn("No token found in cookies, redirecting to login");
-        window.location.href = `${frontendUrl}/login`;
-        return;
-      }
+      // if (!cookies.token) {
+      //   console.warn("No token found in cookies, redirecting to login");
+      //   window.location.href = `${frontendUrl}/login`;
+      //   return;
+      // }
 
       try {
         const { data } = await axios.post(
@@ -28,7 +28,7 @@ const Menu = () => {
           { withCredentials: true }
         );
 
-        const { status, user, message } = data;
+        const { status, user } = data;
         if (status) {
           setUsername(user);
         } else {
@@ -47,7 +47,14 @@ const Menu = () => {
 
   if (loading) return <div>Loading...</div>;
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      // Call backend logout to clear cookie
+      await axios.post(`${backendURL}/logout`, {}, { withCredentials: true });
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+
     removeCookie("token");
     window.location.href = `${frontendUrl}/login`;
   };
