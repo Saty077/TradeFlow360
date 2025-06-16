@@ -15,7 +15,7 @@ module.exports.Signup = async (req, res, next) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-      domain: ".onrender.com",
+      domain: ".render.com",
     });
     res
       .status(201)
@@ -45,7 +45,7 @@ module.exports.Login = async (req, res, next) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-      domain: ".onrender.com",
+      domain: ".render.com",
     });
     res
       .status(201)
