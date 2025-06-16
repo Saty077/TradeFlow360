@@ -14,34 +14,28 @@ const Menu = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Menu.js useEffect triggered"); // Debug
-    console.log("Cookies:", JSON.stringify(cookies, null, 2)); // Debug
     const verifyUser = async () => {
       if (!cookies.token) {
         console.warn("No token found in cookies, redirecting to login");
         window.location.href = `${frontendUrl}/login`;
         return;
       }
-      console.log("Sending POST to http://localhost:3001"); //debug
+
       try {
-        console.log("Sending POST request to http://localhost:3001"); // Debug
         const { data } = await axios.post(
-          `${backendURL}`,
+          `${backendURL}/verify`,
           {},
           { withCredentials: true }
         );
-        console.log("Verification response:", data); // Debug
+
         const { status, user, message } = data;
         if (status) {
-          console.log("Setting username:", user); // Debug
           setUsername(user);
         } else {
-          console.warn("Verification failed:", message); // Debug
           removeCookie("token", { path: "/" });
           window.location.href = `${frontendUrl}/login`;
         }
       } catch (err) {
-        console.error("Verification error:", err.response?.data || err.message); // Debug
         removeCookie("token", { path: "/" });
         window.location.href = `${frontendUrl}/login`;
       } finally {
@@ -52,19 +46,6 @@ const Menu = () => {
   }, [cookies, removeCookie]);
 
   if (loading) return <div>Loading...</div>;
-  // [cookies, removeCookie]
-  // const handleLogout = async () => {
-  //   try {
-  //     console.log("Sending logout request to http://localhost:3001/logout"); // Debug
-  //     await axios.get("http://localhost:3001/logout", {
-  //       withCredentials: true,
-  //     });
-  //     removeCookie("token", { path: "/", domain: "localhost" });
-  //     window.location.href = `${frontendUrl}/login`;
-  //   } catch (err) {
-  //     console.error("Logout failed:", err.response?.data || err.message);
-  //   }
-  // };
 
   const handleLogout = () => {
     removeCookie("token");

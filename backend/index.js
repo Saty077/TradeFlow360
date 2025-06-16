@@ -18,7 +18,7 @@ const frontendUrl = process.env.REACT_APP_FRONTEND_URL;
 
 app.use(
   cors({
-    origin: [`${frontendUrl}`, `${dashboardURL}`],
+    origin: [frontendUrl, dashboardURL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

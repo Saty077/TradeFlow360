@@ -6,10 +6,11 @@ module.exports.userVerification = (req, res) => {
   const token = req.cookies.token;
   console.log("Token received in cookie:", token); //test
   if (!token) {
-    return res.json({ status: false });
+    return res.json({ status: false, message: "no token" });
   }
   jwt.verify(token, process.env.JWT_KEY, async (err, data) => {
     if (err) {
+      console.error("JWT Error:", err); // Add logging
       return res.json({ status: false });
     } else {
       const user = await User.findById(data.id);
