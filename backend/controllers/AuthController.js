@@ -58,7 +58,6 @@ module.exports.Login = async (req, res, next) => {
 
 module.exports.Logout = (req, res) => {
   res.clearCookie("token", {
-    domain: ".render.com",
     httpOnly: true,
     secure: true,
     sameSite: "none",
