@@ -15,7 +15,6 @@ module.exports.Signup = async (req, res, next) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-      domain: ".render.com",
     });
     res
       .status(201)
@@ -45,7 +44,6 @@ module.exports.Login = async (req, res, next) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-      domain: ".render.com",
     });
     res
       .status(201)
@@ -58,7 +56,6 @@ module.exports.Login = async (req, res, next) => {
 
 module.exports.Logout = (req, res) => {
   res.clearCookie("token", {
-    domain: ".render.com",
     httpOnly: true,
     secure: true,
     sameSite: "none",
